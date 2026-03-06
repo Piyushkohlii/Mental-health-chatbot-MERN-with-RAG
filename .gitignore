@@ -11,3 +11,5 @@ SoulTalk
 # Python package metadata
 *.egg-info/
 .eggs/
+
+__pycache__
