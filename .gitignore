@@ -1,0 +1,13 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+SoulTalk_venv/
+SoulTalk
+
+# Environment variables (API keys)
+.env
+
+# Python package metadata
+*.egg-info/
+.eggs/
