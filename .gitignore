@@ -12,4 +12,12 @@ SoulTalk
 *.egg-info/
 .eggs/
 
+#python
 __pycache__
+
+# Node.js / MERN
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
