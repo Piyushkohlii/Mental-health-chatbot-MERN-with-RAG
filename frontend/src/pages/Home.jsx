@@ -4,8 +4,8 @@ import heroImage from '../assets/heroImage.jpg'
 
 const Home = () => {
   return (
-    <div>
-      <div className="relative top-0 left-0 w-full z-10">
+    <div className="relative h-screen w-full overflow-hidden">
+      <div className="relative top-0 left-0 w-full z-20">
         <Header />
       </div>
       <img src={heroImage} className='absolute top-0 left-0 w-full h-full object-cover' />
@@ -13,7 +13,7 @@ const Home = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
 
       {/* Hero Content */}
-      <div className="relative z-10 top-65 flex flex-col items-center justify-center h-full text-center text-white px-6">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
 
         <h1 className="text-5xl font-bold mb-6">
           Talk Freely. Feel Better.
