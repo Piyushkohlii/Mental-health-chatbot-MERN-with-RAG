@@ -20,13 +20,6 @@ const generateAccessAndRefreshTokens = async(userId)=>{
 }        
 
 const registerUser = asyncHandler(async(req , res)=>{
-    //get user details from frontend
-    //validation : not empty
-    //check if user already exist : username, email
-    //create user object -- create entry in database
-    //remove password and refresh token field from response
-    //check for user creation 
-    //return res
 
     const {fullName , username , email , password} = req.body;
     if([fullName,email,username,password].some((field)=> field?.trim()==="")){
@@ -49,15 +42,13 @@ const registerUser = asyncHandler(async(req , res)=>{
     }
 }
 
-    const user = await User.create({ //User.create() is a Mongoose model method used to create and save a new document in MongoDB. It validates schema rules, executes middleware like password hashing, inserts the document into the database, and returns the created document.
+    const user = await User.create({ 
         fullName,
         email,
         password,
         username:username.toLowerCase()
     })
-
-    // console.log(user) by this we can see how our data looks in data base 
-
+   
     const createdUser =  await User.findById(user._id).select(
         "-password -refreshToken"
     )
@@ -66,24 +57,44 @@ const registerUser = asyncHandler(async(req , res)=>{
         throw new ApiError(500,"Something went wrong while registering the user")
     }
 
-    return res.status(201).json(
-        new ApiResponse(200,createdUser,"User registered Successfully")
+    const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
+
+    await createdUser.save({ validateBeforeSave: false });
+
+    const loggedInUser = await User.findById(user._id)
+    .select("-password -refreshToken")
+
+    const options = {
+        httpOnly : true,
+        secure : true
+    }
+
+    return res
+    .status(201)
+    .cookie("accessToken", accessToken , options)
+    .cookie("refreshToken",refreshToken ,options)
+    .json(
+        new ApiResponse(
+            200, //status code
+            { //data 
+                user : loggedInUser,accessToken,refreshToken
+            },
+            "User registered Successfully" //message 
+        )
     )
 
 })
 
 const loginUser = asyncHandler(async(req,res)=>{
-    //req body -> data
-    // login by username or email
-    // find the user (that his username or email exists or not to login)
-    // password check
-    // access and refresh token
-    // send cookie 
 
     const {email,username,password} = req.body
     
-    if(!username && !email){
+    if(!username || !email){
         throw new ApiError(400,"Username or email is required")
+    }
+
+    if (!password) {
+        throw new ApiError(400, "Password is required")
     }
     
     const user = await User.findOne({
@@ -187,49 +198,17 @@ const refreshAccessToken = asyncHandler(async(req,res)=>{
     }
 })
 
-const changeCurrentPassword = asyncHandler(async(req,res)=>{
-    const {oldPassword, newPassword} = req.body
-    const user= await User.findById(req.user?._id)
-    const isPasswordCorrect = await user.isPasswordCorrect(oldPassword)
-    if(!isPasswordCorrect){
-        throw new ApiError(400, "Invalid old password")
+export const myProfile = async(req,res)=>{
+    try {
+        const user = await User.findById(req.user._id)
+        .select("-password -refreshToken");
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({
+            message:error.message,
+        });
     }
-    user.password = newPassword
-    await user.save({validateBeforeSave : false})
-
-    return res
-    .status(200)
-    .json(new ApiResponse(200,{},"Password changed successfuly"))
-})
-
-const getCurrentUser = asyncHandler(async(req,res)=>{
-    return res
-    .status(200)
-    .json(new ApiResponse(200,req.user,"current user fetched successfuly"))
-
-})
-
-const updateAccountDetails = asyncHandler(async(req,res)=>{
-    const {fullName,email} = req.body
-
-    if(!fullName || !email){
-        throw new ApiError(600,"All field are required")
-    }
-
-    const user = await User.findByIdAndUpdate(
-        req.user?._id,
-        {
-            $set:{
-                fullName: fullName,
-                email : email
-            }
-        },
-        {new :  true} //it returns the updated information 
-    ).select("-password")
-    return res
-    .status(200)
-    .json(new ApiResponse(200,user,"Account details updated successfulyd4hatgi"))
-})
+}
 
 
-export {registerUser , loginUser , logoutUser, refreshAccessToken , changeCurrentPassword , getCurrentUser, updateAccountDetails , }
+export {registerUser , loginUser , logoutUser, refreshAccessToken }
