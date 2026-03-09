@@ -58,6 +58,28 @@ prompt = ChatPromptTemplate.from_messages(
 question_answer_chain = create_stuff_documents_chain(chatModel,prompt)
 rag_chain = create_retrieval_chain(retriever,question_answer_chain)
 
+#-----Mood detection----------
+
+def analyze_mood(message):
+
+    mood_prompt = f"""
+You are a mood detection AI.
+
+Analyze the emotional tone of the message.
+
+Return ONLY one word from this list:
+happy, sad, anxiety, anger, neutral
+
+Message:
+{message}
+"""
+
+    result = chatModel.invoke(mood_prompt)
+
+    mood = result.content.strip().lower()
+
+    return mood
+
 
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -69,6 +91,10 @@ def chat():
 
     print("User:", msg)
 
+    #----mood detect------
+    mood = analyze_mood(msg)
+    
+    #-----get rag response---------
     response = rag_chain.invoke({"input": msg})
 
     answer = response["answer"]
@@ -76,7 +102,8 @@ def chat():
     print("AI:", answer)
 
     return jsonify({
-        "response": answer
+        "response": answer,
+        "mood" : mood,
     })
 
 if __name__ == "__main__":
