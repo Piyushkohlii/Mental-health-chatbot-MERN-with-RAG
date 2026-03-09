@@ -10,8 +10,25 @@ import SingleJournal from "./pages/SingleJournal";
 import MoodDashboard from "./pages/MoodDashboard"
 import Profile from "./pages/Profile"
 import CalmSpace from "./pages/CalmSpace"
+import Lenis from "@studio-freight/lenis";
+import { useEffect } from "react"
 
 function App() {
+
+  useEffect(() => {
+
+    const lenis = new Lenis({
+      duration: 1.5, 
+      smooth: true
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  },[])
   return (
     <Routes>
       <Route path="/" element={<Home />} />
