@@ -3,6 +3,7 @@ import { FaSmile } from "react-icons/fa";
 import { JournalData } from "../context/JournalContext";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import Footer from "../components/Footer";
 
 const CreateJournal = () => {
 
@@ -33,7 +34,8 @@ const CreateJournal = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 py-12 px-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col">
+    <main className="flex-1 py-12 px-6">
       <button
                 onClick={() => navigate("/journal")}
                 className="absolute left-10 top-7 text-xl flex items-center gap-2 text-gray-500 hover:text-blue-600 mb-6"
@@ -100,6 +102,8 @@ const CreateJournal = () => {
       </div>
 
     </main>
+    <Footer />
+    </div>
   );
 };
 
