@@ -37,11 +37,11 @@ const Header = () => {
         {/* Navigation */}
         <nav className="hidden md:flex gap-8 text-white font-medium">
           <Link to="/" className="hover:text-gray-300 transition" >Home</Link>
-          <Link to="#" className="hover:text-gray-300 transition">About</Link>
+          <Link to="/about" className="hover:text-gray-300 transition">About</Link>
           <Link to="/chat" className="hover:text-gray-300 transition">Chat</Link>
           <Link to="/journal" className="hover:text-gray-300 transition">Journal</Link>
-          <Link to="#" className="hover:text-gray-300 transition">Resources</Link>
-          
+          <Link to="/moodDashboard" className="hover:text-gray-300 transition">Mood</Link>
+          <Link to="/calm-space" className="hover:text-gray-300 transition">Calm Space</Link>
         </nav>
 
         {/* Buttons */}
