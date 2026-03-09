@@ -6,6 +6,7 @@ import SoulTalkHelps from '../components/SoulTalkHelps'
 import SoulTalkWorks from '../components/SoulTalkWorks'
 import SoulTalkBenefits from '../components/SoulTalkBenifits'
 import SoulTalkCTA from '../components/SoulTalkCTA'
+import Footer from '../components/Footer'
 import Journalimg from "../assets/jorunalunsplash.jpg"
 import AOS from "aos";
 
@@ -85,10 +86,45 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* Calm Space hero below Journal section */}
+      <div className="min-h-[60vh] bg-gray-100 flex items-center justify-center">
+        <div
+          className="w-full max-w-6xl mx-10 my-10 bg-white rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden"
+          data-aos="fade-left"
+        >
+          {/* LEFT: Text */}
+          <div className="w-full md:w-3/5 flex flex-col justify-between p-10 gap-6">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0582e9] mb-4">
+                Calm Space
+              </h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Short breathing exercises, gentle meditations, and peaceful music
+                designed to soften anxiety and help you feel a little lighter.
+              </p>
+            </div>
+            <button
+              className="text-lg text-[#0582e9] px-6 py-3 rounded-4xl w-fit border-2 border-[#0582e9] hover:bg-blue-50 transition"
+              onClick={() => navigate("/calm-space")}
+            >
+              Explore Calm Space
+            </button>
+          </div>
+
+          {/* RIGHT: Visual (reusing journal image for consistent look) */}
+          <div className="w-full md:w-2/5">
+            <img
+              src={Journalimg}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
       <SoulTalkHelps />
       <SoulTalkWorks />
       <SoulTalkBenefits />
       <SoulTalkCTA />
+      <Footer />
     </>
   )
 }
