@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { JournalData } from "../context/JournalContext";
 import { FaArrowLeft } from "react-icons/fa";
-import Footer from "../components/Footer";
 
 const SingleJournal = () => {
 
@@ -77,7 +76,6 @@ const SingleJournal = () => {
 
         </div>
       </main>
-      <Footer />
     </div>
   );
 };
