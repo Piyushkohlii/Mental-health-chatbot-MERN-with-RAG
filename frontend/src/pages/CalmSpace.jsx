@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaWind, FaHeart, FaMusic } from "react-icons/fa";
-import Footer from "../components/Footer";
 
 const exercises = [
   {
@@ -235,7 +234,7 @@ const CalmSpace = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      
     </div>
   );
 };
