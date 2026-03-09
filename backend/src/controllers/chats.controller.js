@@ -42,6 +42,7 @@ export const addConversation = async(req,res)=>{
             chat : chat._id,
             question : req.body.question,
             answer : req.body.answer,
+            mood : req.body.mood,
         })
 
         const updatedChat = await Chats.findByIdAndUpdate(
