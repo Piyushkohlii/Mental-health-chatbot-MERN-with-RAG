@@ -6,7 +6,7 @@ import "aos/dist/aos.css"
 const SoulTalkHelps = () => {
     useEffect(() => {
         AOS.init({
-            duration: 500, // animation duration
+            duration: 2000, // animation duration
         })
     }, [])
     const features = [

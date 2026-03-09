@@ -6,7 +6,7 @@ const SoulTalkWorks = () => {
 
     useEffect(() => {
         AOS.init({
-            duration: 700,
+            duration: 2000,
             once: false
         });
     }, []);

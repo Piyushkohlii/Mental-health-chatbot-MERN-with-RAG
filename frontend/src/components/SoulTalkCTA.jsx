@@ -8,7 +8,7 @@ const SoulTalkCTA = () => {
     const navigate = useNavigate();
       useEffect(() => {
               AOS.init({
-                  duration: 500,
+                  duration: 2000,
                   once: false
               });
           }, []);
