@@ -24,12 +24,14 @@ app.use(cookieParser())
 import userRouter from './routes/user.routes.js'
 import chatRoutes from "./routes/chat.routes.js"
 import journalRoutes from "./routes/journal.routes.js"
+import moodRoutes from "./routes/mood.routes.js";
 
 
 //routes declaration
 app.use("/api/v1/user" , userRouter)
 app.use("/api/v1/chat",chatRoutes)
 app.use("/api/v1/journal", journalRoutes)
+app.use("/api/v1/mood", moodRoutes);
 
 
 
