@@ -13,7 +13,12 @@ const conversationSchema = new mongoose.Schema({
     answer:{
         type:String,
         required : true
-    }
+    },
+    mood: {
+      type: String,
+      enum: ["happy", "sad", "anxiety", "anger", "neutral"],
+      default: "neutral",
+    },
 
 },{timestamps:true})
 
