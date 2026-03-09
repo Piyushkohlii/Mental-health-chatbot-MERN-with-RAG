@@ -65,7 +65,7 @@ export const getConversation = async(req,res)=>{
     try {
         const conversation = await Conversation.find({chat:req.params.id})
 
-        if(!conversation) return res.status(404).json({
+        if(conversation.length === 0) return res.status(404).json({
             message:"No conversation with this id",
         });
 
@@ -77,28 +77,36 @@ export const getConversation = async(req,res)=>{
     }
 }
 
-export const deleteChat = async(req,res)=>{
+export const deleteChat = async (req, res) => {
     try {
+
         const chat = await Chats.findById(req.params.id);
 
-        if(!chat) return res.status(404).json({
-            message:"No chat with this id"
-        })
+        if (!chat) {
+            return res.status(404).json({
+                message: "No chat with this id"
+            });
+        }
 
-        if(chat.user.toString() !== req.user._id.toString())
-        return res.status(403).json({
-            message:"Unauthorized"
-        })
+        if (chat.user.toString() !== req.user._id.toString()) {
+            return res.status(403).json({
+                message: "Unauthorized"
+            });
+        }
 
-        await chat.deleteOne()
+        // delete all conversations linked to this chat
+        await Conversation.deleteMany({ chat: chat._id });
+
+        // delete chat
+        await chat.deleteOne();
 
         res.json({
-            message:"Chat Deleted"
-        })
+            message: "Chat Deleted"
+        });
 
     } catch (error) {
-        res.status(404).json({
-            message : error.message,
-        })
+        res.status(500).json({
+            message: error.message
+        });
     }
-}
+};
