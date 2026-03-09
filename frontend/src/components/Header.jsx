@@ -4,6 +4,7 @@ import Modal from './Modal'
 import Login from './Login'
 import Register from './Register'
 import { UserData } from '../context/UserContext'
+import ProfileSidebar from './ProfileSidebar'
 
 
 const Header = () => {
@@ -11,7 +12,9 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isUser, setIsUser] = useState(true)
 
-  const { activeUser, isActive , logoutUser } = UserData()
+  const { activeUser, isActive } = UserData()
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const openSignup = () => {
     setIsUser(false)
@@ -23,8 +26,8 @@ const Header = () => {
   }
 
   return (
-    <header className="absolute top-0 left-0 w-full z-20">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    <header className="absolute text-lg top-0 left-0 w-full z-20">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
 
         {/* Logo */}
         <h1 className="text-2xl font-bold text-white">
@@ -36,7 +39,9 @@ const Header = () => {
           <Link to="/" className="hover:text-gray-300 transition" >Home</Link>
           <Link to="#" className="hover:text-gray-300 transition">About</Link>
           <Link to="/chat" className="hover:text-gray-300 transition">Chat</Link>
+          <Link to="/journal" className="hover:text-gray-300 transition">Journal</Link>
           <Link to="#" className="hover:text-gray-300 transition">Resources</Link>
+          
         </nav>
 
         {/* Buttons */}
@@ -45,10 +50,11 @@ const Header = () => {
             <div className=" relative group">
 
               {/* Profile Section */}
-              <div className="flex items-center gap-2 cursor-pointer text-white">
+              <div className="flex items-center gap-2 cursor-pointer text-white"
+              onClick={() => setSidebarOpen(true)}>
 
                 {/* Avatar */}
-                <div className="w-9 h-9 rounded-full bg-blue-400 text-white flex items-center justify-center font-semibold text-2xl">
+                <div className="w-9 h-9 rounded-full bg-blue-100 text-[#0582e9] flex items-center justify-center font-semibold text-2xl">
                   {activeUser?.fullName?.charAt(0)}
                 </div>
 
@@ -56,28 +62,8 @@ const Header = () => {
                 <span className="hidden md:block font-medium">
                   {activeUser?.fullName}
                 </span>
-
               </div>
-
-              {/* Dropdown Menu */}
-              <div className="absolute right-0 mt-2 w-40 bg-white text-black rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-
-                <button className="block w-full text-left px-4 py-2 hover:bg-gray-100">
-                  Profile
-                </button>
-
-                <button className="block w-full text-left px-4 py-2 hover:bg-gray-100">
-                  Chat History
-                </button>
-
-                <button
-                  className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100"
-                  onClick={logoutUser}
-                >
-                  Logout
-                </button>
-
-              </div>
+              <ProfileSidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} activeUser={activeUser} />
 
             </div>
           ) : (
