@@ -10,10 +10,16 @@ from dotenv import load_dotenv
 from src.prompt import *
 import os
 
-app = Flask(__name__)
-CORS(app)
-
 load_dotenv()
+
+CORS_ORIGIN = os.getenv("CORS_ORIGIN")
+
+app = Flask(__name__)
+CORS(
+    app,
+    supports_credentials=True,
+    origins=[CORS_ORIGIN]
+    )
 
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
@@ -57,6 +63,9 @@ rag_chain = create_retrieval_chain(retriever,question_answer_chain)
 def chat():
     data = request.json
     msg = data["message"]
+    
+    if not msg:
+        return jsonify({"error": "Message is required"}), 400
 
     print("User:", msg)
 
