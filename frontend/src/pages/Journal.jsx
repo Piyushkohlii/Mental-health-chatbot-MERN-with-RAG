@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { JournalData } from "../context/JournalContext";
 import { FaPlus } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
-import Footer from "../components/Footer";
 
 const Journal = () => {
 
@@ -131,8 +130,6 @@ const Journal = () => {
 
           )}
         </section>
-
-        <Footer />
       </div>
     </>
   )

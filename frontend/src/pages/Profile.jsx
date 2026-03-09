@@ -5,7 +5,6 @@ import { JournalData } from "../context/JournalContext";
 import MoodAnalyticsCard from "../components/MoodAnalyticsCard";
 import { FaArrowLeft, FaRegCalendarCheck, FaRegSmile, FaBookOpen } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -96,7 +95,6 @@ const Profile = () => {
                 </div>
             </div>
             </div>
-            <Footer />
         </div>
     );
 };

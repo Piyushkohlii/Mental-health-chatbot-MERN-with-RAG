@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { FaSmile } from "react-icons/fa";
 import { JournalData } from "../context/JournalContext";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-import Footer from "../components/Footer";
 
 const CreateJournal = () => {
 
@@ -102,7 +100,6 @@ const CreateJournal = () => {
       </div>
 
     </main>
-    <Footer />
     </div>
   );
 };
