@@ -7,15 +7,16 @@ import SoulTalkWorks from '../components/SoulTalkWorks'
 import SoulTalkBenefits from '../components/SoulTalkBenifits'
 import SoulTalkCTA from '../components/SoulTalkCTA'
 import Footer from '../components/Footer'
-import Journalimg from "../assets/jorunalunsplash.jpg"
+import JournaHero from "../assets/journalHero.jpg"
 import AOS from "aos";
+import CalmSpace from "../assets/calmSpace.jpg"
 
 
 
 const Home = () => {
   useEffect(() => {
           AOS.init({
-              duration: 500,
+              duration: 1000,
               once: false
           });
       }, []);
@@ -26,8 +27,7 @@ const Home = () => {
         <div className="relative top-0 left-0 w-full z-20">
           <Header />
         </div>
-        <img src={heroImage} className='absolute top-0 left-0 w-full h-full object-cover
-      ' />
+        <img src={heroImage} className='absolute top-0 left-0 w-full h-full object-cover' />
         {/* Dark overlay */}
         {/* <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div> */}
 
@@ -52,6 +52,7 @@ const Home = () => {
         </div>
       </div>
       <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-b from-transparent to-gray-100"></div>
+
       <div className="min-h-[80vh] bg-gray-100 flex items-center justify-center">
 
         <div className=" h-screen w-full mx-10 my-20 bg-white rounded-xl shadow-lg flex overflow-hidden"
@@ -60,7 +61,7 @@ const Home = () => {
           {/* LEFT SIDE IMAGE */}
           <div className="w-2/5">
             <img
-              src={Journalimg}
+              src={JournaHero}
               className="w-full h-full object-cover"
             />
           </div>
@@ -86,19 +87,20 @@ const Home = () => {
           </div>
         </div>
       </div>
+
       {/* Calm Space hero below Journal section */}
-      <div className="min-h-[60vh] bg-gray-100 flex items-center justify-center">
+      <div className="min-h-[80vh] bg-gray-100 flex items-center justify-center">
         <div
-          className="w-full max-w-6xl mx-10 my-10 bg-white rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden"
-          data-aos="fade-left"
+          className="h-screen w-full mx-10 my-20 bg-white rounded-xl shadow-lg flex overflow-hidden"
+        data-aos="fade-left"
         >
           {/* LEFT: Text */}
-          <div className="w-full md:w-3/5 flex flex-col justify-between p-10 gap-6">
+          <div className="w-3/5 flex flex-col my-30 justify-between p-12">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0582e9] mb-4">
+              <h2 className="text-5xl font-bold text-[#0582e9] mb-4">
                 Calm Space
               </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-8 leading-relaxed">
                 Short breathing exercises, gentle meditations, and peaceful music
                 designed to soften anxiety and help you feel a little lighter.
               </p>
@@ -112,9 +114,9 @@ const Home = () => {
           </div>
 
           {/* RIGHT: Visual (reusing journal image for consistent look) */}
-          <div className="w-full md:w-2/5">
+          <div className="w-2/5">
             <img
-              src={Journalimg}
+              src={CalmSpace}
               className="w-full h-full object-cover"
             />
           </div>
