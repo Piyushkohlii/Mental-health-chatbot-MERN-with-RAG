@@ -24,14 +24,16 @@ export const ChatProvider = ({ children }) => {
             )
             const convo = {
                 question: message,
-                answer: airesponse.data.response
+                answer: airesponse.data.response,
+                mood : airesponse.data.mood
             }
             setMessages((prev) => [...prev, convo])
 
             await axios.post(`${server}/api/v1/chat/${selected}/message`,
                 {
                     question: message,
-                    answer: airesponse.data.response
+                    answer: airesponse.data.response,
+                    mood : airesponse.data.mood
                 },
                 {
                     withCredentials: true
