@@ -60,7 +60,13 @@ const ProfileSidebar = ({ sidebarOpen, setSidebarOpen, activeUser }) => {
                     </div>
 
                     <div className="px-4 w-full text-lg h-full flex flex-col gap-5 cursor-pointer text-[#0582e9]">
-                        <button className="text-left hover:text-blue-500">
+                        <button
+                            className="text-left hover:text-blue-500"
+                            onClick={() => {
+                                navigate("/profile");
+                                setSidebarOpen(false);
+                            }}
+                        >
                             My Profile
                         </button>
 
