@@ -5,6 +5,7 @@ import App from './App.jsx'
 import { BrowserRouter } from "react-router-dom"
 import { UserProvider } from './context/UserContext.jsx'
 import { ChatProvider } from './context/ChatContext.jsx'
+import { JournalProvider } from './context/JournalContext.jsx'
 
 export const server = "http://localhost:5000"
 
@@ -13,7 +14,9 @@ createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <UserProvider>
       <ChatProvider>
-       <App />
+        <JournalProvider>
+          <App />
+        </JournalProvider>
       </ChatProvider> 
     </UserProvider>
   </BrowserRouter>
