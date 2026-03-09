@@ -2,7 +2,6 @@ import React from "react";
 import MoodAnalyticsCard from "../components/MoodAnalyticsCard";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 
 const MoodDashboard = () => {
     const navigate = useNavigate();
@@ -32,7 +31,6 @@ const MoodDashboard = () => {
                     <MoodAnalyticsCard />
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };
