@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import toast, { Toaster } from 'react-hot-toast'
 import axios from 'axios'
-import { server } from "../main";
+import { server } from "../main"
 
 const UserContext = createContext()
 
@@ -41,14 +41,8 @@ export const UserProvider = ({ children }) => {
         setBtnLoading(true)
         try {
             const payload = {
+                identifier,
                 password
-            }
-
-            // check if identifier is email
-            if (identifier.includes("@gmail.com")) {
-                payload.email = identifier
-            } else {
-                payload.username = identifier
             }
             const { data } = await axios.post(
                 `${server}/api/v1/user/login`,
