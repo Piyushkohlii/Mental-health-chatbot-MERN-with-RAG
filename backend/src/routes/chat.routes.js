@@ -8,9 +8,9 @@ router.post("/new" , verifyJWT,createChat)
 
 router.get("/all" , verifyJWT,getAllChats)
 
-router.post("/:id",verifyJWT , addConversation)
+router.post("/:id/message",verifyJWT , addConversation)
 
-router.get("/:id",verifyJWT, getConversation)
+router.get("/:id/messages",verifyJWT, getConversation)
 
 router.delete("/:id",verifyJWT,deleteChat)
 
