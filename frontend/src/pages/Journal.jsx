@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Journalimg from "../assets/jorunalunsplash.jpg"
 import { useNavigate } from "react-router-dom";
 import { JournalData } from "../context/JournalContext";
 import { FaPlus } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
+import Footer from "../components/Footer";
 
 const Journal = () => {
 
@@ -12,7 +13,7 @@ const Journal = () => {
 
   return (
     <>
-      <div className="bg-gray-100">
+      <div className="bg-gray-100 min-h-screen flex flex-col">
         
         <div className="min-h-[80vh] bg-gray-100 flex items-center justify-center">
           <button
@@ -131,6 +132,7 @@ const Journal = () => {
           )}
         </section>
 
+        <Footer />
       </div>
     </>
   )
