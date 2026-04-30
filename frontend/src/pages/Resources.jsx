@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const Resources = () => {
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col">
+    <div className="bg-gray-100 min-h-[100dvh] flex flex-col">
       <div className="relative h-[40vh] w-full overflow-hidden">
         <div className="relative top-0 left-0 w-full z-20">
           <Header />

@@ -12,9 +12,9 @@ const Journal = () => {
 
   return (
     <>
-      <div className="bg-gray-100 min-h-screen flex flex-col">
+      <div className="bg-gray-100 min-h-[100dvh] flex flex-col px-3 sm:px-4 md:px-6">
         
-        <div className="min-h-[80vh] bg-gray-100 flex items-center justify-center">
+        <div className="min-h-[70dvh] bg-gray-100 flex items-start md:items-center justify-center py-16 sm:py-20">
           <button
           onClick={() => navigate("/")}
           className="absolute left-10 top-7 text-xl flex items-center gap-2 text-gray-500 hover:text-blue-600 mb-6"
@@ -22,10 +22,10 @@ const Journal = () => {
           <FaArrowLeft />
           Back
         </button>
-          <div className=" h-screen w-full mx-10 my-20 bg-white rounded-xl shadow-lg flex overflow-hidden">
+          <div className="min-h-[70dvh] md:min-h-[75dvh] w-full max-w-6xl mx-auto my-4 sm:my-8 md:my-10 bg-white rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden">
 
             {/* LEFT SIDE IMAGE */}
-            <div className="w-2/5">
+            <div className="w-full md:w-2/5 min-h-56 sm:min-h-72 md:min-h-0">
               <img
                 src={Journalimg}
                 className="w-full h-full object-cover"
@@ -33,7 +33,7 @@ const Journal = () => {
             </div>
 
             {/* RIGHT SIDE CONTENT */}
-            <div className="w-3/5 flex flex-col my-30 justify-between p-12">
+            <div className="w-full md:w-3/5 flex flex-col justify-between p-5 sm:p-8 md:p-12">
               <div>
                 <h1 className="text-5xl font-bold text-[#0582e9]  mb-4">
                   <span>Your Journal</span><br />

@@ -25,9 +25,8 @@ const Sidebar = ({isOpen, toggleSidebar}) => {
   }
 
   return (
-
     <div
-      className={`fixed h-screen inset-y-0 left-0 backdrop-blur-md bg-[#0582e9] border-r border-gray-200 p-6 transition-transform transform md:relative md:translate-x-0 md:w-1/4 md:block shadow-lg
+      className={`fixed z-40 h-[100dvh] inset-y-0 left-0 w-[85%] max-w-xs sm:w-72 backdrop-blur-md bg-[#0582e9] border-r border-gray-200 p-4 sm:p-6 transition-transform transform md:relative md:z-0 md:translate-x-0 md:w-1/3 lg:w-1/4 md:block shadow-lg
       ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
     >
 
@@ -40,14 +39,14 @@ const Sidebar = ({isOpen, toggleSidebar}) => {
       </button>
 
       {/* title */}
-      <div className='text-3xl font-bold text-white mb-10'>
-        s<span className='text-3xl font-bold'>O</span>ulTalk
+      <div className='text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-10'>
+        s<span className='text-2xl sm:text-3xl font-bold'>O</span>ulTalk
       </div>
 
       {/* new chat button */}
       <div className='mb-6'>
         <button
-          className='w-full py-3 bg-blue-100 text-[#0582e9] font-bold text-lg rounded-xl hover:bg-white transition shadow-md'
+          className='w-full py-3 bg-blue-100 text-[#0582e9] font-bold text-base sm:text-lg rounded-xl hover:bg-white transition shadow-md'
           onClick={createChat}
         >
           {createLoading ? <LoadingSpinner/> : "New Chat +"}
@@ -57,11 +56,11 @@ const Sidebar = ({isOpen, toggleSidebar}) => {
       {/* recent chats */}
       <div>
 
-        <p className='text-lg text-gray-100 mb-3 font-medium'>
+        <p className='text-base sm:text-lg text-gray-100 mb-3 font-medium'>
           Recent Conversations
         </p>
 
-        <div className='max-h-[500px] overflow-y-auto space-y-2 pr-1 thinScrollbar'>
+        <div className='max-h-[55vh] md:max-h-[62vh] overflow-y-auto space-y-2 pr-1 thinScrollbar'>
 
           {
             chats && chats.length>0 ? chats.map((chat)=>(
@@ -72,7 +71,7 @@ const Sidebar = ({isOpen, toggleSidebar}) => {
                 onClick={()=>clickEvent(chat._id)}
               >
 
-                <span className='text-sm text-[#0582e9] truncate max-w-[150px]'>
+                <span className='text-sm text-[#0582e9] truncate max-w-[140px] sm:max-w-[160px]'>
                   {chat.latestMessage.slice(0,38)|| "New chat"}...
                 </span>
 
@@ -102,7 +101,7 @@ const Sidebar = ({isOpen, toggleSidebar}) => {
       </div>
 
       {/* Exit button */}
-      <div className='absolute bottom-6 left-6 right-6'>
+      <div className='absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6'>
 
         <div
           className="flex gap-1 items-center cursor-pointer text-white py-3 text-2xl"

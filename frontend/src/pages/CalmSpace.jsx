@@ -66,7 +66,7 @@ const CalmSpace = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col">
+    <div className="bg-gray-100 min-h-[100dvh] flex flex-col">
       {/* Back */}
       <button
         onClick={() => navigate("/")}
@@ -77,7 +77,7 @@ const CalmSpace = () => {
       </button>
 
       {/* Hero */}
-      <main className="min-h-screen flex items-center justify-center pt-20 pb-16 px-6">
+      <main className="min-h-[100dvh] flex items-center justify-center pt-20 pb-16 px-4 sm:px-6">
         <div className="w-full max-w-6xl bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
           {/* Left content */}
           <div className="w-full md:w-3/5 p-10 flex flex-col justify-center gap-6">

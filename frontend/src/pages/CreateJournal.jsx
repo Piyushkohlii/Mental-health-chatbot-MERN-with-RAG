@@ -32,7 +32,7 @@ const CreateJournal = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col">
     <main className="flex-1 py-12 px-6">
       <button
                 onClick={() => navigate("/journal")}

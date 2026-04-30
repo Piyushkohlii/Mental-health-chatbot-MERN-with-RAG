@@ -38,10 +38,10 @@ const Login = ({openSignup , closeModal}) => {
                     <input type="checkbox" className='form-checkbox'/>
                     <span className='ml-2 text-gray-700'>Remember Me</span>
                 </label>
-                <a href="#" className='text-red-800'>Forgot Password</a>
+                <a href="#" className='text-[#0582e9]'>Forgot Password</a>
             </div>
             <div className='mb-4'>
-                <button type='submit' className='w-full bg-red-600 text-white py-2'
+                <button type='submit' className='w-full bg-[#0582e9] text-white py-2'
                 disabled={btnLoading}>
                     {btnLoading ? "Logging..." : "Login"}
                 </button>
@@ -49,7 +49,7 @@ const Login = ({openSignup , closeModal}) => {
         </form>
         <div className='text-center'>
             <span className='text-gray-700'>Dont have an Account</span>
-            <button className='text-red-800' onClick={openSignup}>Sign Up</button>
+            <button className='text-[#0582e9]' onClick={openSignup}>Sign Up</button>
         </div>
     </div>
   )

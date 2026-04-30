@@ -16,7 +16,7 @@ const Profile = () => {
     const totalJournals = journals?.length || 0;
 
     return (
-        <div className="bg-gray-100 min-h-screen flex flex-col">
+        <div className="bg-gray-100 min-h-[100dvh] flex flex-col px-3 sm:px-4 md:px-6">
             <button
                 onClick={() => navigate("/")}
                 className="absolute left-10 top-7 text-xl flex items-center gap-2 text-gray-500 hover:text-blue-600 mb-6"
@@ -25,8 +25,8 @@ const Profile = () => {
                 Back
             </button>
 
-            <div className="flex-1 flex items-center justify-center">
-            <div className="w-full max-w-6xl mx-6 my-16 bg-white rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden">
+            <div className="flex-1 flex items-start md:items-center justify-center py-16 sm:py-20">
+            <div className="w-full max-w-6xl mx-auto my-6 sm:my-8 md:my-16 bg-white rounded-xl shadow-lg flex flex-col md:flex-row overflow-hidden">
                 {/* Left: profile summary */}
                 <div className="w-full md:w-2/5 bg-blue-50/70 border-r border-blue-100 p-8 flex flex-col justify-between">
                     <div>

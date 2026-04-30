@@ -48,7 +48,7 @@ const Register = ({ openLogin , closeModal}) => {
                     onChange={(e)=>setPassword(e.target.value)} />
                 </div>
                 <div className='mb-4'>
-                    <button type='submit' className='w-full bg-red-600 text-white py-2'
+                    <button type='submit' className='w-full bg-[#0582e9] text-white py-2'
                     disabled={btnLoading}>
                         {btnLoading ? "Registering..." : "Sign up"}
                     </button>
@@ -56,7 +56,7 @@ const Register = ({ openLogin , closeModal}) => {
             </form>
             <div className='text-center'>
                 <span className='text-gray-700'>Already have an Account</span>
-                <button className='text-red-800' onClick={openLogin}>Login</button>
+                <button className='text-[#0582e9]' onClick={openLogin}>Login</button>
             </div>
         </div>
     )

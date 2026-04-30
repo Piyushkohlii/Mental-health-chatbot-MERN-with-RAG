@@ -19,7 +19,7 @@ const ProfileSidebar = ({ sidebarOpen, setSidebarOpen, activeUser }) => {
     const clickEvent = (id) => {
         navigate("/chat")
         setSelected(id)
-        toggleSidebar()
+        setSidebarOpen(false)
     }
 
     return (
@@ -34,7 +34,7 @@ const ProfileSidebar = ({ sidebarOpen, setSidebarOpen, activeUser }) => {
 
             {/* Sidebar */}
             <div
-                className={`fixed top-0 right-0 h-full w-74 bg-blue-100 shadow-xl z-70 transform transition-transform duration-300
+                className={`fixed top-0 right-0 h-full w-[85%] max-w-sm bg-blue-100 shadow-xl z-70 transform transition-transform duration-300
         ${sidebarOpen ? "translate-x-0" : "translate-x-full"}`}
             >
                 <button

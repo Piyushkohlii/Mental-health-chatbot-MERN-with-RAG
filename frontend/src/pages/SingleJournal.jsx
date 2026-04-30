@@ -28,14 +28,14 @@ const SingleJournal = () => {
 
   if (!journal) {
     return (
-      <div className="flex justify-center items-center min-h-screen text-gray-500">
+      <div className="flex justify-center items-center min-h-[100dvh] text-gray-500">
         Loading journal...
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col">
       <main className="flex-1 py-16 px-6">
         <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-10">
 
